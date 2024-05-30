@@ -1,9 +1,9 @@
 'use client'
 import React from "react";
 import Image from "next/image";
-import logo from './assets/image/Oasis Final Logo.png'
+import logo from './../assets/image/Oasis Final Logo.png'
 
-export default function Home () {
+export default function comming () {
   return(
     <>
       <div className="fixed w-full top-0 right-0 left-0 bottom-0 z-[100]" style={{ backgroundImage:"url('/img/commingsoon.jpg')" }}>
@@ -12,14 +12,14 @@ export default function Home () {
       <div className="fixed w-full right-0 left-0 bottom-0 top-0 bg-white opacity-50 z-[101]"></div>
       <div className="fixed w-full top-0 right-0 left-0 bottom-0 z-[102]">
         <div className="w-full max-w-[1440px] mx-auto flex">
-          <div className="text-left px-6">
+          <div className="text-left  px-6">
             <a
               href="/" 
               className="relative after:bg-none hover:after:h-0 after:h-0">
               <Image src={logo} alt="" width={200} className="mx-auto"/>
             </a>
           </div>
-          <div className="item-center content-center text-right w-full px-6">
+          <div className="item-center content-center text-right w-full">
             <a 
               href="/contact"
               className="relative font-bold font-spartan cursor-pointer">
