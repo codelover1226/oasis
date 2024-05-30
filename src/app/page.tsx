@@ -6,7 +6,7 @@ import logo from './assets/image/Oasis Final Logo.png'
 export default function Home () {
   return(
     <>
-      <div className="fixed w-full top-0 right-0 left-0 bottom-0 z-[100]" style={{ backgroundImage:"url('/img/commingsoon.jpg')" }}>
+      <div className="fixed w-full top-0 right-0 left-0 bottom-0 z-[100]" style={{ backgroundImage:"url('/img/commingsoon.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
         
       </div>
       <div className="fixed w-full right-0 left-0 bottom-0 top-0 bg-white opacity-50 z-[101]"></div>
