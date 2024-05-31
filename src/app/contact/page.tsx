@@ -30,19 +30,19 @@ interface ContactData {
 
 const contactData: ContactData = {
   role: [ 
-    { "value": "", "label": "Role" },
+    { "value": "", "label": "Select Role*" },
     { "value": "buyer", "label": "Buyer" },
     { "value": "broker", "label": "Broker" },
   ],
   budget: [
-    { "value": "", "label": "Select your budget" },
+    { "value": "", "label": "Select Your Budget*" },
     { "value": "$500K-$1M", "label": "$500K-$1M" },
     { "value": "$1M-$2M", "label": "$1M-$2M" },
     { "value": "$2M-$3M", "label": "$2M-$3M" },
     { "value": "$3M+", "label": "$3M+" }
   ],
   interior: [ 
-    { "value": "", "label": "Interested Size" },
+    { "value": "", "label": "Choose Type*" },
     { "value": "studio", "label": "studio" },
     { "value": "1 Bedroom", "label": "1 Bedroom" },
     { "value": "2 Bedrooms", "label": "2 Bedrooms" },
@@ -106,7 +106,14 @@ export default function Coming(): JSX.Element {
     </div>
   </body>
   </html>
-`
+` 
+const onTextAreaValueChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  console.log(event)
+  const target = event.target;
+  const value = target.value;
+  const id = target.id;
+  setForms(prevForms => ({...prevForms, [id]: value }));
+}
   const onValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
     const value = target.value;
@@ -223,48 +230,48 @@ export default function Coming(): JSX.Element {
           </div>
           <form className="w-full">
             <div className="w-full lg:flex lg:mb-6 lg:space-x-6">
-              <div className="w-full relative my-3 sm:my-0">
+              <div className="w-full relative my-3 sm:my-3">
                 <Input 
-                  placeholder="FIRST NAME*"
+                  placeholder="First Name*"
                   onValueChange={onValueChange}
                   id={"first_name"}
-                  className="w-[calc(100vw-24px)] sm:w-full mx-3"
+                  className="w-[calc(100%-24px)] px-3"
                   name="first name"
                 />
                 {errors.first_name && <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-4">{errors.first_name}</p>}
               </div>
-              <div className="w-full relative my-3 sm:my-0">
+              <div className="w-full relative my-3 sm:my-3">
                 <Input 
-                  placeholder="LAST NAME*"
+                  placeholder="Last Name*"
                   onValueChange={onValueChange}
                   id={"last_name"}
-                  className="w-[calc(100vw-24px)] sm:w-full mx-3"
+                  className="w-[calc(100%-24px)] px-3"
                   name="last name"
                 />
                 {errors.last_name && <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-4">{errors.last_name}</p>}
               </div>
             </div>
-            <div className="w-full lg:my-6 space-x-3 my-3 sm:my-0 relative">
+            <div className="w-full lg:my-6 space-x-3 my-3 sm:my-3 relative">
               <Input 
                 placeholder="Email*"
                 onValueChange={onValueChange}
                 id={"email"}
-                className="w-[calc(100vw-24px)] sm:w-full mx-3"
+                className="w-[calc(100%-24px)] px-3"
                 name="email"
               />      
               {errors.email && <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-1">{errors.email}</p>}
             </div>
-            <div className="w-full lg:my-6 space-x-3 my-3 sm:my-0 relative">
+            <div className="w-full lg:my-6 space-x-3 my-3 sm:my-3 relative">
               <Input 
                 placeholder="Phone Number*"
                 onValueChange={onValueChange}
                 id={"phone"}
-                className="w-[calc(100vw-24px)] sm:w-full mx-3"
+                className="w-[calc(100%-24px)] px-3"
                 name="phone"
               />      
               {errors.phone && <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-1">{errors.phone}</p>}
             </div>
-            <div className="w-full lg:my-6 space-x-3 my-3 sm:my-0 relative">
+            <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-3 sm:my-3 relative">
               <Select 
                 options={contactData.role}
                 onChange={handleDropdownChange}
@@ -273,7 +280,7 @@ export default function Coming(): JSX.Element {
               />
               {errors.role && <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-1">{errors.role}</p>}
             </div>
-            <div className="w-full lg:my-6 space-x-3 my-3 sm:my-0 relative">
+            <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-3 sm:my-3 relative">
               <Select 
                 options={contactData.interior}
                 onChange={handleDropdownChange}
@@ -282,7 +289,7 @@ export default function Coming(): JSX.Element {
               />
               {errors.interior && <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-1">{errors.interior}</p>}
             </div>
-            <div className="w-full lg:my-6 space-x-3 my-3 sm:my-0 relative">
+            <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-3 sm:my-3 relative">
               <Select 
                 options={contactData.budget}
                 onChange={handleDropdownChange}
@@ -291,15 +298,17 @@ export default function Coming(): JSX.Element {
               />
               {errors.price && <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-1">{errors.price}</p>}
             </div>
+            <div className="">
+              <textarea 
+                placeholder="Message"
+                onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {onTextAreaValueChange(event)}}
+                id={"message"}
+                className="focus-visible:outline-none rounded-xl w-[calc(100%-24px)] mx-3 bg-main-bg min-h-[100px] border-[2px] p-2"
+                name=""
+
+              />
+            </div>
             
-            <Input 
-              placeholder="Message"
-              onValueChange={onValueChange}
-              id={"message"}
-              type="message"
-              className="w-full"
-              name=""
-            />
             
             <div className="my-6 text-center w-full">
               <button onClick={(e) => onclick(e)} className="border-[2px] border-black hover:bg-black duration-1000 hover:text-main-bg rounded-full px-5 py-2 text-2xl">

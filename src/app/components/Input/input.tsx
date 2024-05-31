@@ -18,7 +18,7 @@ const Input: React.FC<InputProps> = ({ placeholder, onValueChange, type = "text"
         {name}
       </p> */}
       <input
-        className={`bg-main-bg border-b-[2px] focus-visible:border-none p-2 px-4 ${className? className : ''}`}
+        className={`rounded-full bg-main-bg border-[2px] focus-visible:border-none p-2 px-4 mx-3 ${className? className : ''}`}
         onChange={(e) => onValueChange(e)} 
         placeholder={placeholder}
         type={type}
