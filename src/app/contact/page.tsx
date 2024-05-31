@@ -202,7 +202,7 @@ const onTextAreaValueChange = (event: React.ChangeEvent<HTMLTextAreaElement>) =>
   };
   return(
     <>
-      <div className="fixed w-full top-0 right-0 left-0 bottom-0 z-[102] bg-main-bg overflow-y-scroll lg:overflow-y-hidden">
+      <div className="fixed w-full top-0 right-0 left-0 bottom-0 z-[102] bg-main-bg overflow-y-scroll no-scrollbar">
         <div className="w-full max-w-[1440px] mx-auto flex">
           <div className="text-left px-6">
             <a
