@@ -14,3 +14,8 @@ export const isValidName = (name) => {
 
   return nameRegex.test(name);
 }
+
+export const isValidPhoneNumber = (phoneNumber) => {
+  const cleanedNumber = phoneNumber.replace(/\D/g, '');
+  return cleanedNumber.length === 10;
+}
