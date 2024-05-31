@@ -50,7 +50,7 @@ const contactData: ContactData = {
   ],
   interior: [
     { value: "", label: "Choose Type*" },
-    { value: "studio", label: "studio" },
+    { value: "Studio", label: "Studio" },
     { value: "1 Bedroom", label: "1 Bedroom" },
     { value: "2 Bedrooms", label: "2 Bedrooms" },
     { value: "3 Bedrooms", label: "2 Bedrooms" },
@@ -200,7 +200,7 @@ export default function Coming(): JSX.Element {
           const formData = new FormData();
           formData.append("from", "onboarding@resend.dev");
           formData.append("to", "simonxmachine@gmail.com");
-          formData.append("subject", "New Subscriber");
+          formData.append("subject", "New Lead for Oasis Astoria");
           formData.append("html", emailTemplate);
 
           const response = await fetch(
@@ -212,9 +212,11 @@ export default function Coming(): JSX.Element {
           );
 
           if (!response.ok) throw new Error("Network response was not ok");
-          window.alert("You have been successfully subscribed.");
+          window.alert("Your query has been successfully sent to Oasis.");
         } catch (error) {
-          window.alert("NetWork Error");
+          window.alert(
+            "Form not submitted properly - please call 646-889-9988"
+          );
         }
       }
     }
@@ -249,7 +251,7 @@ export default function Coming(): JSX.Element {
               href="/"
               className="relative after:bg-none hover:after:h-0 after:h-0 "
             >
-              <Image src={logo} alt="" width={200} className="mx-auto" />
+              <Image src={logo} alt="" width={250} className="mx-auto" />
             </a>
           </div>
           <div className="item-center content-center text-right w-full px-6">
@@ -263,24 +265,25 @@ export default function Coming(): JSX.Element {
         </div>
         <div className="w-full lg:flex max-w-[1440px] mx-auto mt-12 sm:mt-24">
           <div className="w-full px-6">
-            <Image src={blogo2} alt="" width={700} className="" />
+            <Image src={blogo2} alt="" width={700} className="rounded-lg" />
             <br />
 
             <p className="font-spartan text-lg">
-              To learn more about our building, please register here.
+              To learn more about Oasis Astoria, please register here.
             </p>
             <div className="my-6 flex-col">
               <a className="font-spartan text-lg relative cursor-pointer border-b-[2px] pt-12">
-                nusunvernon@grevg.com
+                oasisastoria@gmail.com
               </a>
               <p>
                 <a className="font-spartan text-sm relative cursor-pointer border-b-[2px] pt-12">
-                  (646) 970-3055
+                  (646) 889-9988
                 </a>
               </p>
             </div>
             <p className="font-spartan text-lg my-6">
-              3055 Vernon Boulevard, Long Island City New York, NY 11102
+              31-16 21st Street <br />
+              Astoria, NY 11101
             </p>
           </div>
           <form className="w-full">
@@ -396,7 +399,7 @@ export default function Coming(): JSX.Element {
             <div className="my-6 text-center w-full">
               <button
                 onClick={(e) => onclick(e)}
-                className="border-[2px] border-black hover:bg-black duration-1000 hover:text-main-bg rounded-full px-5 py-2 text-2xl"
+                className="border-[2px] border-black hover:bg-black duration-1000 hover:text-main-bg rounded-full px-8 py-3 text-xl"
               >
                 Submit
               </button>
