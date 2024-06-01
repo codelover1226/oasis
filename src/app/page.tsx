@@ -14,7 +14,7 @@ export default function Home() {
           backgroundPosition: "center",
         }}
       ></div>
-      <div className="fixed w-full right-0 left-0 bottom-0 top-0 bg-white opacity-70 sm:opacity-50 z-[101]"></div>
+      <div className="fixed w-full right-0 left-0 bottom-0 top-0 bg-white opacity-70 sm:opacity-60 z-[101]"></div>
       <div className="fixed w-full top-0 right-0 left-0 bottom-0 z-[102]">
         <div className="w-full max-w-[1440px] mx-auto flex">
           <div className="text-left px-6">
@@ -34,7 +34,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <div className="mt-[20vh]">
+        <div className="mt-[16vh]">
           <Image src={logo} alt="" width={300} className="mx-auto" />
 
           <p className="text-xl font-ivy-mode text-center font-bold mt-4 mb-5">
