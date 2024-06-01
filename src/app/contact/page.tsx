@@ -419,7 +419,7 @@ export default function Coming(): JSX.Element {
           </form>
         </div>
 
-        <div className="flex justify-between items-center mt-20 px-5 py-4 bg-stone-300 text-gray-600 text-sm">
+        <div className="flex justify-between items-center mt-20 pl-4 pr-1 py-4 bg-stone-300 text-gray-600 text-sm">
           <p>&copy; 2024 Oasis Astoria. </p>
           <p>
             {" "}
@@ -428,7 +428,7 @@ export default function Coming(): JSX.Element {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image src={blogo1} alt="" width={220} className="" />
+              <Image src={blogo1} alt="" width={200} className="" />
             </a>
           </p>
         </div>
