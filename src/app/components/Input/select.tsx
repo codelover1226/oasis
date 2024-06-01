@@ -20,7 +20,8 @@ const Select: React.FC<SelectProps> = ({ options, onChange, id, name }) => {
         {name}
       </p> */}
     <select
-      className="bg-main-bg border-[2px] p-2 w-[calc(100vw-24px)] rounded-full sm:w-full px-3 mx-3"
+      className="bg-main-bg border-[2px] w-[calc(100vw-24px)] rounded-full sm:w-full mx-3"
+      style={{ padding: '8px 12px' }}
       onChange={onChange}
       id={id}
     >
