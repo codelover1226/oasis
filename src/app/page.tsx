@@ -36,6 +36,10 @@ export default function Home() {
         </div>
         <div className="mt-[20vh]">
           <Image src={logo} alt="" width={300} className="mx-auto" />
+
+          <p className="text-xl font-ivy-mode text-center font-bold mt-4 mb-5">
+            One to Two Bedroom Condominiums from $708,500
+          </p>
           <p className="text-4xl font-ivy-mode text-center uppercase font-bold">
             coming soon
           </p>

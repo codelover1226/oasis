@@ -5,7 +5,8 @@ import Input from "../components/Input/input";
 import logo from "./../assets/image/Oasis Final Logo.png";
 import Select from "../components/Input/select";
 import blogo1 from "./../assets/image/bsquare_logo.png";
-import blogo2 from "./../assets/image/oasis_exterior2.jpeg";
+import blogo2 from "./../assets/image/oasis_exterior1.jpeg";
+import ig_icon from "./../assets/image/ig_icon.png";
 import {
   isEmail,
   isEmpty,
@@ -38,22 +39,20 @@ interface ContactData {
 const contactData: ContactData = {
   role: [
     { value: "", label: "Select Role*" },
-    { value: "buyer", label: "Buyer" },
-    { value: "broker", label: "Broker" },
+    { value: "Buyer", label: "Buyer" },
+    { value: "Broker", label: "Broker" },
   ],
   budget: [
     { value: "", label: "Select Your Budget*" },
-    { value: "$500K-$1M", label: "$500K-$1M" },
-    { value: "$1M-$2M", label: "$1M-$2M" },
-    { value: "$2M-$3M", label: "$2M-$3M" },
-    { value: "$3M+", label: "$3M+" },
+    { value: "$700K-$900K", label: "$700K-$900K" },
+    { value: "$900K-$1.1M", label: "$900K-$1.1M" },
+    { value: "$1.1M-$1.3M", label: "$1.1M-$1.3M" },
+    { value: "$1.3M+", label: "$1.3M+" },
   ],
   interior: [
     { value: "", label: "Choose Type*" },
-    { value: "Studio", label: "Studio" },
     { value: "1 Bedroom", label: "1 Bedroom" },
     { value: "2 Bedrooms", label: "2 Bedrooms" },
-    { value: "3 Bedrooms", label: "2 Bedrooms" },
   ],
 };
 
@@ -87,27 +86,27 @@ export default function Coming(): JSX.Element {
   <!DOCTYPE html>
   <html>
   <head>
-    <title>New Contact Arrived</title>
+    <title>New Lead for Oasis Astoria</title>
     <style>
       a { font-style: italic; font-weight: bold; color: black !important; }
     </style>
   </head>
   <body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
     <div style="width: 100%; max-width: 750px; margin: 0 auto; padding: 20px;">
-      <div style="text-align: center; font-size: 33px; color: #333; margin-bottom:40px;">New contact arrived</div>
+      <div style="text-align: center; font-size: 33px; color: #333; margin-bottom:40px;">New lead for Oasis Astoria</div>
       <div style="background-color: #F3EBDD; border-radius: 20px; width:100%; padding: 20px">
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">First Name: ${forms.first_name}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Last Name: ${forms.last_name}</div>
+        <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Phone Number: ${forms.phone}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Email: ${forms.email}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Budget: ${forms.price}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Interior: ${forms.interior}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Role: ${forms.role}</div>
-        <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Phone Number: ${forms.phone}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Comment: ${forms.message}</div>
       </div>
       <div style="padding: 35px 0px; width: 100%;">
         <div style="width: 100%; max-width: 400px; margin: 0 auto;">
-          <div style="font-size:14px; color: #BC9067; text-align: center"> This is newsletter from union center.</div>
+          <div style="font-size:14px; color: #BC9067; text-align: center"> This is a new lead from Oasis Astoria website.</div>
         </div>
       </div>
     </div>
@@ -212,7 +211,9 @@ export default function Coming(): JSX.Element {
           );
 
           if (!response.ok) throw new Error("Network response was not ok");
-          window.alert("Your query has been successfully sent to Oasis.");
+          window.alert(
+            "Your query has been successfully sent to Oasis. Thank you. "
+          );
         } catch (error) {
           window.alert(
             "Form not submitted properly - please call 646-889-9988"
@@ -263,13 +264,16 @@ export default function Coming(): JSX.Element {
             </a>
           </div>
         </div>
-        <div className="w-full lg:flex max-w-[1440px] mx-auto mt-12 sm:mt-24">
-          <div className="w-full px-6">
+        <div className="w-full lg:flex max-w-[1440px] mx-auto mt-12 mb-12 sm:mt-24">
+          <div className="w-full px-6 mb-20">
             <Image src={blogo2} alt="" width={700} className="rounded-lg" />
             <br />
 
-            <p className="font-spartan text-lg">
-              To learn more about Oasis Astoria, please register here.
+            <p className="font-spartan text-lg my-6">
+              <strong>Oasis Astoria</strong>
+              <br />
+              31-16 21st Street <br />
+              Astoria, NY 11101
             </p>
             <div className="my-6 flex-col">
               <a className="font-spartan text-lg relative cursor-pointer border-b-[2px] pt-12">
@@ -280,13 +284,21 @@ export default function Coming(): JSX.Element {
                   (646) 889-9988
                 </a>
               </p>
+              <br />
+              <a
+                href="https://www.instagram.com/oasisastoria/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image src={ig_icon} alt="" width={40} className="rounded-lg" />
+              </a>
             </div>
-            <p className="font-spartan text-lg my-6">
-              31-16 21st Street <br />
-              Astoria, NY 11101
-            </p>
           </div>
+
           <form className="w-full">
+            <p className="font-spartan text-lg lg:flex ml-2 lg:mb-4 lg:space-x-6 w-[calc(100%-24px)] px-3">
+              <strong>For more information, please register here:</strong>
+            </p>
             <div className="w-full lg:flex lg:mb-6 lg:space-x-6">
               <div className="w-full relative my-3 sm:my-3">
                 <Input
