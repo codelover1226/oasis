@@ -17,7 +17,7 @@ export default function Home() {
       <div className="fixed w-full right-0 left-0 bottom-0 top-0 bg-white opacity-70 sm:opacity-60 z-[101]"></div>
       <div className="fixed w-full top-0 right-0 left-0 bottom-0 z-[102]">
         <div className="w-full max-w-[1440px] mx-auto flex">
-          <div className="text-left px-6">
+          <div className="text-left px-5">
             <a
               href="/"
               className="relative after:bg-none hover:after:h-0 after:h-0"

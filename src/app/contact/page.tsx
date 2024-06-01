@@ -247,7 +247,7 @@ export default function Coming(): JSX.Element {
     <>
       <div className="fixed w-full top-0 right-0 left-0 bottom-0 z-[102] bg-main-bg overflow-y-scroll no-scrollbar">
         <div className="w-full max-w-[1440px] mx-auto flex">
-          <div className="text-left px-6">
+          <div className="text-left px-5">
             <a
               href="/"
               className="relative after:bg-none hover:after:h-0 after:h-0 "
@@ -420,7 +420,7 @@ export default function Coming(): JSX.Element {
         </div>
 
         <div className="flex justify-between items-center mt-20 px-6 py-4 bg-stone-300 text-gray-600 text-sm">
-          <p>&copy; 2024 Oasis Astoria. All rights reserved.</p>
+          <p>&copy; 2024 Oasis Astoria. </p>
           <p>
             {" "}
             <a
