@@ -299,8 +299,8 @@ export default function Coming(): JSX.Element {
             <p className="font-spartan text-lg lg:flex ml-2 lg:mb-4 lg:space-x-6 w-[calc(100%-24px)] px-3">
               <strong>For more information, please register here:</strong>
             </p>
-            <div className="w-full lg:flex lg:mb-6 lg:space-x-6">
-              <div className="w-full relative my-3 sm:my-3">
+            <div className="w-full lg:flex mb-4 lg:mb-6 lg:space-x-6">
+              <div className="w-full relative my-5 sm:my-3">
                 <Input
                   placeholder="First Name*"
                   onValueChange={onValueChange}
@@ -309,12 +309,12 @@ export default function Coming(): JSX.Element {
                   name="first name"
                 />
                 {errors.first_name && (
-                  <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-4">
+                  <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-4">
                     {errors.first_name}
                   </p>
                 )}
               </div>
-              <div className="w-full relative my-3 sm:my-3">
+              <div className="w-full relative my-4 sm:my-3">
                 <Input
                   placeholder="Last Name*"
                   onValueChange={onValueChange}
@@ -323,13 +323,13 @@ export default function Coming(): JSX.Element {
                   name="last name"
                 />
                 {errors.last_name && (
-                  <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-4">
+                  <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-4">
                     {errors.last_name}
                   </p>
                 )}
               </div>
             </div>
-            <div className="w-full lg:my-6 space-x-3 my-3 sm:my-3 relative">
+            <div className="w-full lg:my-6 space-x-3 my-5 sm:my-3 relative">
               <Input
                 placeholder="Email*"
                 onValueChange={onValueChange}
@@ -338,12 +338,12 @@ export default function Coming(): JSX.Element {
                 name="email"
               />
               {errors.email && (
-                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-1">
+                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
                   {errors.email}
                 </p>
               )}
             </div>
-            <div className="w-full lg:my-6 space-x-3 my-3 sm:my-3 relative">
+            <div className="w-full lg:my-6 space-x-3 my-5 sm:my-3 relative">
               <Input
                 placeholder="Phone Number*"
                 onValueChange={onValueChange}
@@ -352,12 +352,12 @@ export default function Coming(): JSX.Element {
                 name="phone"
               />
               {errors.phone && (
-                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-1">
+                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
                   {errors.phone}
                 </p>
               )}
             </div>
-            <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-3 sm:my-3 relative">
+            <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-5 sm:my-3 relative">
               <Select
                 options={contactData.role}
                 onChange={handleDropdownChange}
@@ -365,12 +365,12 @@ export default function Coming(): JSX.Element {
                 name="Role (required)"
               />
               {errors.role && (
-                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-1">
+                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
                   {errors.role}
                 </p>
               )}
             </div>
-            <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-3 sm:my-3 relative">
+            <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-5 sm:my-3 relative">
               <Select
                 options={contactData.interior}
                 onChange={handleDropdownChange}
@@ -378,12 +378,12 @@ export default function Coming(): JSX.Element {
                 name="Interested Size (required)"
               />
               {errors.interior && (
-                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-1">
+                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
                   {errors.interior}
                 </p>
               )}
             </div>
-            <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-3 sm:my-3 relative">
+            <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-5 sm:my-3 relative">
               <Select
                 options={contactData.budget}
                 onChange={handleDropdownChange}
@@ -391,7 +391,7 @@ export default function Coming(): JSX.Element {
                 name="Price (required)"
               />
               {errors.price && (
-                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-3 left-1">
+                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
                   {errors.price}
                 </p>
               )}
