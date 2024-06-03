@@ -298,7 +298,17 @@ export default function Coming(): JSX.Element {
 
           <form className="w-full">
             <p className="font-spartan text-lg lg:flex ml-2 lg:mb-4 lg:space-x-6 w-[calc(100%-24px)] px-3">
-              <strong>For more information, please register here:</strong>
+              <strong>
+                Introducing Oasis, an upcoming luxury residential condominium in
+                the vibrant neighborhood of Astoria, Queens. With 52 units
+                ranging from 1 to 2 bedrooms, each showcasing Bosch appliances
+                and sophisticated modern designs, Oasis offers a new standard of
+                urban living. Amenities include a bicycle storage room, resident
+                rooftop, gym, and more to be announced. Join our priority list
+                and follow us on Instagram for the latest updates on this
+                exciting development! <br /> <br />
+                For more information, please register here:
+              </strong>
             </p>
             <div className="w-full lg:flex lg:space-x-6">
               <div className="w-full relative my-5 sm:mb-0">
