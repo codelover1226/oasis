@@ -289,6 +289,7 @@ export default function Coming(): JSX.Element {
                 href="https://www.instagram.com/oasisastoria/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="relative after:bg-none hover:after:h-0 after:h-0"
               >
                 <Image src={ig_icon} alt="" width={40} className="rounded-lg" />
               </a>
@@ -299,8 +300,8 @@ export default function Coming(): JSX.Element {
             <p className="font-spartan text-lg lg:flex ml-2 lg:mb-4 lg:space-x-6 w-[calc(100%-24px)] px-3">
               <strong>For more information, please register here:</strong>
             </p>
-            <div className="w-full lg:flex mb-4 lg:mb-6 lg:space-x-6">
-              <div className="w-full relative my-5 sm:my-3">
+            <div className="w-full lg:flex lg:space-x-6">
+              <div className="w-full relative my-5 sm:mb-0">
                 <Input
                   placeholder="First Name*"
                   onValueChange={onValueChange}
@@ -314,7 +315,7 @@ export default function Coming(): JSX.Element {
                   </p>
                 )}
               </div>
-              <div className="w-full relative my-4 sm:my-3">
+              <div className="w-full relative my-4 sm:mb-0">
                 <Input
                   placeholder="Last Name*"
                   onValueChange={onValueChange}
@@ -427,6 +428,7 @@ export default function Coming(): JSX.Element {
               href="https://bsquarerealty.com/"
               target="_blank"
               rel="noopener noreferrer"
+              className="relative after:bg-none hover:after:h-0 after:h-0"
             >
               <Image src={blogo1} alt="" width={200} className="" />
             </a>
