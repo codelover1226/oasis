@@ -20,10 +20,10 @@ export default function Home() {
 
   const backgroundImages = [
     { url: "url('/img/background/oasis_exterior2.jpeg')" },
-    { url: "url('/img/background/img1.jpg')" },
     { url: "url('/img/background/img4.jpg')" },
-    { url: "url('/img/background/img2.jpg')" },
+    { url: "url('/img/background/img1.jpg')" },
     { url: "url('/img/background/img6.jpg')" },
+    { url: "url('/img/background/img2.jpg')" },
     { url: "url('/img/background/oasis_exterior1.jpeg')" },
   ];
   return (
