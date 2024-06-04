@@ -1,19 +1,43 @@
 "use client";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Image from "next/image";
 import logo from "./assets/image/Oasis Final Logo.png";
-
 export default function Home() {
+  const [current, setCurrent] = useState(0);
+  const [next, setNext] = useState(5);
+  const [before, setBefore] = useState(1);
+
+  useEffect(() => {
+    let intervalId;
+    const incrementCounter = () => {
+      setCurrent((prevCurrent) => (prevCurrent - 1 + 6) % 6);
+      setNext((prevNext) => (prevNext - 1 +6) % 6);
+      setBefore((prevBefore) => (prevBefore - 1 +6) % 6);
+    };
+    intervalId = setInterval(incrementCounter,2000);
+    return () => clearInterval(intervalId);
+  }, []);
+
+    const backgroundImages = [
+      { url: "url('/img/background/img1.jpg')"},
+      { url: "url('/img/background/img2.jpg')"},
+      { url: "url('/img/background/img3.jpg')"},
+      { url: "url('/img/background/img4.jpg')"},
+      { url: "url('/img/background/img5.jpg')"},
+      { url: "url('/img/background/img6.jpg')"},
+    ];
   return (
     <>
-      <div
-        className="fixed w-full top-0 right-0 left-0 bottom-0 z-[100]"
-        style={{
-          backgroundImage: "url('/img/commingsoon.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      ></div>
+      <div className="slide-container absolute top-0 left-0 bottom-0 right-0">
+        <div className="slider">
+          <div className="slide" style={{ backgroundImage: backgroundImages[0].url }}></div>
+          <div className="slide" style={{ backgroundImage: backgroundImages[1].url }}></div>
+          <div className="slide" style={{ backgroundImage: backgroundImages[2].url }}></div>
+          <div className="slide" style={{ backgroundImage: backgroundImages[3].url }}></div>
+          <div className="slide" style={{ backgroundImage: backgroundImages[4].url }}></div>
+          <div className="slide" style={{ backgroundImage: backgroundImages[5].url }}></div>
+        </div>
+      </div>
       <div className="fixed w-full right-0 left-0 bottom-0 top-0 bg-white opacity-70 sm:opacity-60 z-[101]"></div>
       <div className="fixed w-full top-0 right-0 left-0 bottom-0 z-[102]">
         <div className="w-full max-w-[1440px] mx-auto flex">

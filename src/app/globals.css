@@ -17,36 +17,67 @@
   font-family: 'spartan-mb-5';
   src: url('./assets/fonts/spartan-mb-5.ttf');
 }
-
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.before {
+ /* Animation for translating the element along the X-axis */
+ animation: currentTranslationAnimation 2s infinite;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.slider {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+ }
+  
+ .slider .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: slider 20s infinite;
+ }
+  
+ .slider .slide:nth-child(1) {
+    animation-delay: 0s;
+ }
+ 
+ .slider .slide:nth-child(2) {
+    animation-delay: -4s;
+ }
+ 
+ .slider .slide:nth-child(3) {
+    animation-delay: -8s;
+ }
+ 
+ .slider .slide:nth-child(4) {
+    animation-delay: -12s;
+ }
+ 
+ .slider .slide:nth-child(5) {
+    animation-delay: -16s;
+ }
+ .slider .slide:nth-child(6) {
+    animation-delay: -20s;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+ 
+ @keyframes slider {
+  0%, 18%, 100% {
+    transform: translateX(0);
+    animation-timing-function: ease;
   }
-} */
+  20% {
+    transform: translateX(-100%);
+    animation-timing-function: step-end;
+  }
+  98% {
+    transform: translateX(100%);
+    animation-timing-function: ease;
+  }
+ }
+
+
 a::after {
   content: '';
   position: absolute;
