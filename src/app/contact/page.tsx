@@ -99,8 +99,8 @@ export default function Coming(): JSX.Element {
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Last Name: ${forms.last_name}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Phone Number: ${forms.phone}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Email: ${forms.email}</div>
+        <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Property Type: ${forms.interior}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Budget: ${forms.price}</div>
-        <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Interior: ${forms.interior}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Role: ${forms.role}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Comment: ${forms.message}</div>
       </div>
@@ -198,7 +198,7 @@ export default function Coming(): JSX.Element {
         try {
           const formData = new FormData();
           formData.append("from", "onboarding@resend.dev");
-          formData.append("to", "simonxmachine@gmail.com");
+          formData.append("to", "oasisastoria@gmail.com");
           formData.append("subject", "New Lead for Oasis Astoria");
           formData.append("html", emailTemplate);
 
@@ -212,7 +212,7 @@ export default function Coming(): JSX.Element {
 
           if (!response.ok) throw new Error("Network response was not ok");
           window.alert(
-            "Your query has been successfully sent to Oasis. Thank you. "
+            "Your request has been successfully sent to Oasis. Thank you. "
           );
         } catch (error) {
           window.alert(
