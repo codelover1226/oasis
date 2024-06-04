@@ -291,7 +291,15 @@ export default function Coming(): JSX.Element {
                 rel="noopener noreferrer"
                 className="relative after:bg-none hover:after:h-0 after:h-0"
               >
-                <Image src={ig_icon} alt="" width={40} className="rounded-lg" />
+                <div className="flex items-center">
+                  <Image
+                    src={ig_icon}
+                    alt=""
+                    width={40}
+                    className="rounded-lg"
+                  />{" "}
+                  <span className="ml-2">Follow us on Instagram!</span>
+                </div>
               </a>
             </div>
           </div>
