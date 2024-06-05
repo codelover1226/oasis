@@ -198,7 +198,7 @@ export default function Coming(): JSX.Element {
         try {
           const formData = new FormData();
           formData.append("from", "onboarding@resend.dev");
-          formData.append("to", "simonxmachine@gmail.com");
+          formData.append("to", "simonremgmt@gmail.com");
           formData.append("subject", "New Lead for Oasis Astoria");
           formData.append("html", emailTemplate);
 
