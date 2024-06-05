@@ -203,7 +203,7 @@ export default function Coming(): JSX.Element {
           formData.append("html", emailTemplate);
 
           const response = await fetch(
-            `https://tracking-server-beta.vercel.app/api/send`,
+            `https://track-server.vercel.app/api/send`,
             {
               method: "POST",
               body: formData,
