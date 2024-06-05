@@ -198,7 +198,7 @@ export default function Coming(): JSX.Element {
         try {
           const formData = new FormData();
           formData.append("from", "onboarding@resend.dev");
-          formData.append("to", "simonremgmt@gmail.com");
+          formData.append("to", "simonxmachine@gmail.com");
           formData.append("subject", "New Lead for Oasis Astoria");
           formData.append("html", emailTemplate);
 
@@ -305,7 +305,7 @@ export default function Coming(): JSX.Element {
           </div>
 
           <form className="w-full">
-            <p className="font-spartan text-lg lg:flex ml-2 lg:mb-4 lg:space-x-6 w-[calc(100%-24px)] px-3">
+            <p className="font-spartan text-lg lg:flex ml-2 lg:mb-4 lg:space-x-6 w-[calc(100%-24px)] px-3 text-yellow-800">
               <strong>
                 Introducing Oasis, an upcoming luxury residential condominium in
                 the vibrant neighborhood of Astoria, Queens. With 52 units
@@ -315,9 +315,13 @@ export default function Coming(): JSX.Element {
                 rooftop, gym, and more to be announced. Join our priority list
                 and follow us on Instagram for the latest updates on this
                 exciting development! <br /> <br />
-                For more information, please register here:
               </strong>
             </p>
+
+            <p className="font-spartan text-lg lg:flex ml-2 lg:mb-4 lg:space-x-6 w-[calc(100%-24px)] px-3">
+              For more information, please register here:
+            </p>
+
             <div className="w-full lg:flex lg:space-x-6">
               <div className="w-full relative my-5 sm:mb-0">
                 <Input
