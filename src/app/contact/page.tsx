@@ -22,7 +22,6 @@ interface FormState {
   interior: string;
   role: string;
   price: string;
-  message: string;
 }
 
 interface Option {
@@ -63,6 +62,7 @@ interface InputProps {
 }
 
 export default function Coming(): JSX.Element {
+  const [status, setStatus] = useState<boolean> (false)
   const [forms, setForms] = useState<FormState>({
     first_name: "",
     last_name: "",
@@ -70,7 +70,6 @@ export default function Coming(): JSX.Element {
     interior: "",
     role: "",
     price: "",
-    message: "",
     phone: "",
   });
 
@@ -102,7 +101,7 @@ export default function Coming(): JSX.Element {
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Property Type: ${forms.interior}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Budget: ${forms.price}</div>
         <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Role: ${forms.role}</div>
-        <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Comment: ${forms.message}</div>
+        <div style="font-size: 18px; color: #666; margin-top:5px; margin-bottom:5px;">Comment: ${message}</div>
       </div>
       <div style="padding: 35px 0px; width: 100%;">
         <div style="width: 100%; max-width: 400px; margin: 0 auto;">
@@ -113,6 +112,9 @@ export default function Coming(): JSX.Element {
   </body>
   </html>
 `;
+  const onMessageChangeHandle = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMessage(event.target.value)
+  }
   const onTextAreaValueChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
@@ -193,6 +195,7 @@ export default function Coming(): JSX.Element {
       }
     }
     const allValid = Object.values(forms).every((field) => !isEmpty(field));
+    console.log(allValid)
     if (allValid) {
       if (Object.values(errors).every((value) => isEmpty(value))) {
         try {
@@ -211,9 +214,7 @@ export default function Coming(): JSX.Element {
           );
 
           if (!response.ok) throw new Error("Network response was not ok");
-          window.alert(
-            "Your request has been successfully sent to Oasis. Thank you. "
-          );
+            setStatus(true)
         } catch (error) {
           window.alert(
             "Form not submitted properly - please call 646-889-9988"
@@ -303,143 +304,153 @@ export default function Coming(): JSX.Element {
               </a>
             </div>
           </div>
-
-          <form className="w-full">
+          <div className="w-full">
             <p className="font-spartan text-lg lg:flex ml-2 lg:mb-4 lg:space-x-6 w-[calc(100%-24px)] px-3 text-yellow-800">
-              <strong>
-                Introducing Oasis, an upcoming luxury residential condominium in
-                the vibrant neighborhood of Astoria, Queens. With 52 units
-                ranging from 1 to 2 bedrooms, each showcasing Bosch appliances
-                and sophisticated modern designs, Oasis offers a new standard of
-                urban living. Amenities include a bicycle storage room, resident
-                rooftop, gym, and more to be announced. Join our priority list
-                and follow us on Instagram for the latest updates on this
-                exciting development! <br /> <br />
-              </strong>
-            </p>
+                <strong>
+                  Introducing Oasis, an upcoming luxury residential condominium in
+                  the vibrant neighborhood of Astoria, Queens. With 52 units
+                  ranging from 1 to 2 bedrooms, each showcasing Bosch appliances
+                  and sophisticated modern designs, Oasis offers a new standard of
+                  urban living. Amenities include a bicycle storage room, resident
+                  rooftop, gym, and more to be announced. Join our priority list
+                  and follow us on Instagram for the latest updates on this
+                  exciting development! <br /> <br />
+                </strong>
+              </p>
+              {!status ? <form className="w-full">
+              <p className="font-spartan text-lg lg:flex ml-2 lg:mb-4 lg:space-x-6 w-[calc(100%-24px)] px-3">
+                For more information, please register here:
+              </p>
 
-            <p className="font-spartan text-lg lg:flex ml-2 lg:mb-4 lg:space-x-6 w-[calc(100%-24px)] px-3">
-              For more information, please register here:
-            </p>
-
-            <div className="w-full lg:flex lg:space-x-6">
-              <div className="w-full relative my-5 sm:mb-0">
+              <div className="w-full lg:flex lg:space-x-6">
+                <div className="w-full relative my-5 sm:mb-0">
+                  <Input
+                    placeholder="First Name*"
+                    onValueChange={onValueChange}
+                    id={"first_name"}
+                    className="w-[calc(100%-24px)] px-3"
+                    name="first name"
+                  />
+                  {errors.first_name && (
+                    <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-4">
+                      {errors.first_name}
+                    </p>
+                  )}
+                </div>
+                <div className="w-full relative my-4 sm:mb-0">
+                  <Input
+                    placeholder="Last Name*"
+                    onValueChange={onValueChange}
+                    id={"last_name"}
+                    className="w-[calc(100%-24px)] px-3"
+                    name="last name"
+                  />
+                  {errors.last_name && (
+                    <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-4">
+                      {errors.last_name}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="w-full lg:my-6 space-x-3 my-5 sm:my-3 relative">
                 <Input
-                  placeholder="First Name*"
+                  placeholder="Email*"
                   onValueChange={onValueChange}
-                  id={"first_name"}
+                  id={"email"}
                   className="w-[calc(100%-24px)] px-3"
-                  name="first name"
+                  name="email"
                 />
-                {errors.first_name && (
-                  <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-4">
-                    {errors.first_name}
+                {errors.email && (
+                  <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
+                    {errors.email}
                   </p>
                 )}
               </div>
-              <div className="w-full relative my-4 sm:mb-0">
+              <div className="w-full lg:my-6 space-x-3 my-5 sm:my-3 relative">
                 <Input
-                  placeholder="Last Name*"
+                  placeholder="Phone Number*"
                   onValueChange={onValueChange}
-                  id={"last_name"}
+                  id={"phone"}
                   className="w-[calc(100%-24px)] px-3"
-                  name="last name"
+                  name="phone"
                 />
-                {errors.last_name && (
-                  <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-4">
-                    {errors.last_name}
+                {errors.phone && (
+                  <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
+                    {errors.phone}
                   </p>
                 )}
               </div>
-            </div>
-            <div className="w-full lg:my-6 space-x-3 my-5 sm:my-3 relative">
-              <Input
-                placeholder="Email*"
-                onValueChange={onValueChange}
-                id={"email"}
-                className="w-[calc(100%-24px)] px-3"
-                name="email"
-              />
-              {errors.email && (
-                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
-                  {errors.email}
-                </p>
-              )}
-            </div>
-            <div className="w-full lg:my-6 space-x-3 my-5 sm:my-3 relative">
-              <Input
-                placeholder="Phone Number*"
-                onValueChange={onValueChange}
-                id={"phone"}
-                className="w-[calc(100%-24px)] px-3"
-                name="phone"
-              />
-              {errors.phone && (
-                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
-                  {errors.phone}
-                </p>
-              )}
-            </div>
-            <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-5 sm:my-3 relative">
-              <Select
-                options={contactData.role}
-                onChange={handleDropdownChange}
-                id="role"
-                name="Role (required)"
-              />
-              {errors.role && (
-                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
-                  {errors.role}
-                </p>
-              )}
-            </div>
-            <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-5 sm:my-3 relative">
-              <Select
-                options={contactData.interior}
-                onChange={handleDropdownChange}
-                id="interior"
-                name="Interested Size (required)"
-              />
-              {errors.interior && (
-                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
-                  {errors.interior}
-                </p>
-              )}
-            </div>
-            <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-5 sm:my-3 relative">
-              <Select
-                options={contactData.budget}
-                onChange={handleDropdownChange}
-                id="price"
-                name="Price (required)"
-              />
-              {errors.price && (
-                <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
-                  {errors.price}
-                </p>
-              )}
-            </div>
-            <div className="">
-              <textarea
-                placeholder="Message"
-                onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
-                  onTextAreaValueChange(event);
-                }}
-                id={"message"}
-                className="focus-visible:outline-none rounded-xl w-[calc(100%-24px)] mx-3 bg-main-bg min-h-[100px] border-[2px] p-2"
-                name=""
-              />
-            </div>
+              <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-5 sm:my-3 relative">
+                <Select
+                  options={contactData.role}
+                  onChange={handleDropdownChange}
+                  id="role"
+                  name="Role (required)"
+                />
+                {errors.role && (
+                  <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
+                    {errors.role}
+                  </p>
+                )}
+              </div>
+              <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-5 sm:my-3 relative">
+                <Select
+                  options={contactData.interior}
+                  onChange={handleDropdownChange}
+                  id="interior"
+                  name="Interested Size (required)"
+                />
+                {errors.interior && (
+                  <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
+                    {errors.interior}
+                  </p>
+                )}
+              </div>
+              <div className="w-[calc(100%-24px)] lg:my-6 space-x-3 my-5 sm:my-3 relative">
+                <Select
+                  options={contactData.budget}
+                  onChange={handleDropdownChange}
+                  id="price"
+                  name="Price (required)"
+                />
+                {errors.price && (
+                  <p className="float-right text-red-600 text-[12px] text-red absolute -bottom-4 left-1">
+                    {errors.price}
+                  </p>
+                )}
+              </div>
+              <div className="">
+                <textarea
+                  placeholder="Message"
+                  onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
+                    onMessageChangeHandle(event);
+                  }}
+                  value={message}
+                  id={"message"}
+                  className="focus-visible:outline-none rounded-xl w-[calc(100%-24px)] mx-3 bg-main-bg min-h-[100px] border-[2px] p-2"
+                  name=""
+                />
+              </div>
 
-            <div className="my-6 text-center w-full">
-              <button
-                onClick={(e) => onclick(e)}
-                className="border-[2px] border-black hover:bg-black duration-1000 hover:text-main-bg rounded-full px-8 py-3 text-xl"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
+              <div className="my-6 text-center w-full">
+                <button
+                  onClick={(e) => onclick(e)}
+                  className="border-[2px] border-black hover:bg-black duration-1000 hover:text-main-bg rounded-full px-8 py-3 text-xl"
+                >
+                  Submit
+                </button>
+              </div>
+            </form> : 
+            <>
+              <div className="w-full my-24">
+                <p className="text-4xl text-center text-yellow-800">
+                  Thank you
+                </p>
+              </div>
+            </>}
+            
+          </div>
+          
         </div>
 
         <div className="flex justify-between items-center mt-20 pl-4 pr-1 py-4 bg-stone-300 text-gray-600 text-sm">
